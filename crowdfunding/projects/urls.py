@@ -7,6 +7,7 @@ from . import views
 urlpatterns = [
     path('projects/', views.ProjectList.as_view(), name="project-list"),
     path('projects/<int:pk>/', views.ProjectDetail.as_view()),
+    path('pledges/', views.PledgeList.as_view(), name="pledge-list")
     ] 
 
 urlpatterns = format_suffix_patterns(urlpatterns) # 'format_suffix_patterns' function takes all your ursl and ability to tell it if yoy want JSON or HTML back, 'force it'

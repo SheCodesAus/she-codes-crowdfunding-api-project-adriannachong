@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Project # standard practice = line break between rest and imoport models 
+from .models import Project, Pledge # standard practice = line break between rest and imoport models 
 
 class ProjectSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
@@ -15,3 +15,8 @@ class ProjectSerializer(serializers.Serializer):
     
     def create(self, validated_data):
         return Project.objects.create(**validated_data) # dictionary of keys and data
+
+class PledgeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pledge
+        fields = ['id', 'amount', 'comment', 'anonymous', 'project', 'supporter']
