@@ -1,6 +1,13 @@
 from rest_framework import serializers
-
 from .models import Project, Pledge # standard practice = line break between rest and imoport models 
+
+
+class PledgeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pledge
+        fields = ['id', 'amount', 'comment', 'anonymous', 'project', 'supporter']
+        read_only_fields = ['id', 'supporter']
+
 
 class ProjectSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
@@ -36,4 +43,5 @@ class PledgeSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'supporter']
 
 class ProjectDetailSerializer(ProjectSerializer):
-    pass
+    pledges = PledgeSerializer(many=True, read_only=True)
+
