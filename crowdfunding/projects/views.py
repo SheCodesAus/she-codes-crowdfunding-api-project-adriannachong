@@ -11,18 +11,18 @@ from .permissions import IsOwnerOrReadOnly
 # Create your views here.
 
 class ProjectList(APIView): # define each type of activity
-    	permission_classes = [
-            permissions.IsAuthenticatedOrReadOnly,
-            IsOwnerOrReadOnly
-            ]
- 
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly,
+        IsOwnerOrReadOnly
+        ]
 
-def get(self, request):
+
+    def get(self, request):
         projects = Project.objects.all()
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data) #response from RFW, getting serializer data
 
-def post (self, request):
+    def post (self, request):
         serializer = ProjectSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(owner=request.user)

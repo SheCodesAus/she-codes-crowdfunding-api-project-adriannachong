@@ -8,6 +8,9 @@ class PledgeSerializer(serializers.ModelSerializer):
         fields = ['id', 'amount', 'comment', 'anonymous', 'project', 'supporter']
         read_only_fields = ['id', 'supporter']
 
+    def create(self, validated_data):
+        return Pledge.objects.create(**validated_data)
+
 
 class ProjectSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()

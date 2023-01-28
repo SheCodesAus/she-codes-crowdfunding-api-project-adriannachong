@@ -27,12 +27,13 @@ SECRET_KEY = os.environ.get(
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get(
-    "DJANGO_DEBUG",
-    "False") != "False"
+ "DJANGO_DEBUG",
+  "False") != "False"
 
-ALLOWED_HOSTS = ['dark-darkness-9221.fly.dev']
+
+ALLOWED_HOSTS = ['dark-darkness-9221.fly.dev', '127.0.0.1', 'localhost']
 COSRS_ALLOW_ALL_ORIGINS = True
-CSRF_TRUSTED_ORGIINS = ['http://*.fly.dev']
+CSRF_TRUSTED_ORGIINS = ['https://*.fly.dev']
 
 
 # Application definition
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
 ]
+
 
 # specifcying we're going to use the custom user model instead of the built in user
 
@@ -140,11 +142,14 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# when the browser creates a session and is that user so it remembers that information.
+     # tells the API to do this
+
+
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
     	   'rest_framework.authentication.TokenAuthentication',
     	   'rest_framework.authentication.SessionAuthentication',
     ]
 }
-# when the browser creates a session and is that user so it remembers that information.
-     # tells the API to do this
