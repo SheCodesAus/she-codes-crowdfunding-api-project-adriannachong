@@ -4,9 +4,11 @@ from rest_framework.response import Response
 from django.http import Http404
 from rest_framework import status, permissions
 from rest_framework import generics
+
 from .models import Project, Pledge
 from .serializers import ProjectSerializer, PledgeSerializer, ProjectDetailSerializer
 from .permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 
 # Create your views here.
 
@@ -60,6 +62,8 @@ class ProjectDetail(APIView):
 class PledgeList(generics.ListCreateAPIView):
     queryset = Pledge.objects.all()
     serializer_class = PledgeSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['supporter', 'project']
 
     def perform_create(self, serializer):
         serializer.save(supporter=self.request.user)
