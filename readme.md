@@ -29,9 +29,9 @@
 ### Part A Submission
 - A link to the GitHub repository containing the code for your [project.](https://github.com/SheCodesAus/she-codes-crowdfunding-api-project-adriannachong)
 - A link to the [deployed project.](https://dark-darkness-9221.fly.dev/projects/)
-- A screenshot of Insomnia, demonstrating a successful GET method for any endpoint.
-- A screenshot of Insomnia, demonstrating a successful POST method for any endpoint.
-- A screenshot of Insomnia, demonstrating a token being returned.
+- A screenshot of Insomnia, demonstrating a successful [GET method](https://github.com/SheCodesAus/she-codes-crowdfunding-api-project-adriannachong/blob/main/screenshot%20-%20get%20method.png) for any endpoint.
+- A screenshot of Insomnia, demonstrating a successful [POST method](https://github.com/SheCodesAus/she-codes-crowdfunding-api-project-adriannachong/blob/main/screenshot%20-%20post%20method.png) for any endpoint.
+- A screenshot of Insomnia, demonstrating a [token being returned.](https://github.com/SheCodesAus/she-codes-crowdfunding-api-project-adriannachong/blob/main/screenshot%20-%20token%20returned.png)
 - Step by step instructions for how to register a new user and create a new project. 
 #### 1. Create User
 ```
