@@ -8,7 +8,7 @@ from rest_framework import generics
 from .models import Project, Pledge
 from .serializers import ProjectSerializer, PledgeSerializer, ProjectDetailSerializer
 from .permissions import IsOwnerOrReadOnly
-from django_filters.rest_framework import DjangoFilterBackend
+from django_filters.rest_framework import DjangoFilterBackend #custom filter
 
 # Create your views here.
 
@@ -58,7 +58,7 @@ class ProjectDetail(APIView):
                     partial=True
       	)
 
-
+#adding custom filters
 class PledgeList(generics.ListCreateAPIView):
     queryset = Pledge.objects.all()
     serializer_class = PledgeSerializer

@@ -3,3 +3,5 @@ djangorestframework==3.14.0
 gunicorn
 whitenoise
 django-cors-headers
+
+#add django_filter when deployed 
