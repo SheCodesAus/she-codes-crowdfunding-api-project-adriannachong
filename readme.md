@@ -31,17 +31,15 @@
 - A screenshot of Insomnia, demonstrating a successful POST method for any endpoint.
 - A screenshot of Insomnia, demonstrating a token being returned.
 - Step by step instructions for how to register a new user and create a new project. 
-- Your refined [API specification and Database Schema.](https://docs.google.com/document/d/1xWHVMj9vnV-NbYiie3esstoxiwoudotASchv9ftUuDg/edit?usp=sharing)
-
-```
 #### 1. Create User
+```
 curl --request POST \
   --url http://localhost:8000/users/ \
   --header 'Authorization: Token 8e20271c59fdf1e68b72ee6e38d60aba1edc47f6' \
   --header 'Content-Type: application/json' \
   --data '{
-    "username": "sierraa",
-    "email": "sierra@email.com",
+    "username": "username123",
+    "email": "fakeemail@email.com",
 		"password": "password"
 }'
 
@@ -51,13 +49,13 @@ curl --request POST \
   --url http://localhost:8000/api-token-auth/ \
   --header 'Content-Type: application/json' \
   --data '{
-"username": "admin",
+"username": "adminname",
 "password": "adminpassword"
 }'
 ```
-```
-#### 2. Create New Project 
 
+#### 2. Create New Project 
+```
 curl --request POST \
   --url http://localhost:8000/projects/ \
   --header 'Authorization: Token 8e20271c59fdf1e68b72ee6e38d60aba1edc47f6' \
@@ -71,3 +69,6 @@ curl --request POST \
 	"date_created": "2023-01-28T05:25:59.759Z"
 }'
 ```
+- Your refined [API specification and Database Schema.](https://docs.google.com/document/d/1xWHVMj9vnV-NbYiie3esstoxiwoudotASchv9ftUuDg/edit?usp=sharing)
+
+
