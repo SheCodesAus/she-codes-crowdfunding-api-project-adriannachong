@@ -1,6 +1,6 @@
 # Crowdfunding Project: Fans Only
 
-#### Introducing a revolutionary new crowdfunding platform that lets fans bring back their favorite cancelled TV shows and movies! With this platform, you can donate money to help revive a cancelled series or support the creation of a sequel to your favourite film. Whether you're a die-hard fan or just want to see more of your favourite characters, this platform gives you the power to make it happen. 
+#### Join us in preserving our beautiful marine life! Climate change and human activities have put our marine ecosystems at risk. Help us crowdfund for marine conservation efforts that will protect endangered species and their habitats. Every donation counts towards ensuring the survival of these creatures and sustaining our planet's biodiversity. Let's work together to make a positive impact on our oceans!
 
 
 ### Features
@@ -51,7 +51,7 @@ curl --request POST \
   --url http://localhost:8000/api-token-auth/ \
   --header 'Content-Type: application/json' \
   --data '{
-"username": "adminname",
+"username": "admin",
 "password": "adminpassword"
 }'
 ```
