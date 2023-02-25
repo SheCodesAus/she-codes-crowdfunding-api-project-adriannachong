@@ -1,6 +1,6 @@
-# Crowdfunding Project: Fans Only
+# Crowdfunding Project: Ocean Eyes
 
-#### Join us in preserving our beautiful marine life! Climate change and human activities have put our marine ecosystems at risk. Help us crowdfund for marine conservation efforts that will protect endangered species and their habitats. Every donation counts towards ensuring the survival of these creatures and sustaining our planet's biodiversity. Let's work together to make a positive impact on our oceans!
+#### Join us in preserving our beautiful marine life! Climate change and human activities have put our marine ecosystems and our friends that live there at risk. Help us crowdfund for marine conservation efforts that will protect endangered species and their habitats. Every donation counts towards ensuring the survival of these creatures and sustaining our planet's biodiversity. Let's work together to make a positive impact on our oceans!
 
 
 ### Features
