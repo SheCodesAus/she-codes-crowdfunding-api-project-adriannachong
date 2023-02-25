@@ -1,30 +1,38 @@
 from rest_framework import serializers
-from .models import Project, Pledge # standard practice = line break between rest and imoport models 
 
+from .models import Project, Pledge
+from users.serializers import CustomUserSerializer
 
 class PledgeSerializer(serializers.ModelSerializer):
+
+    supporter = serializers.SerializerMethodField()
     class Meta:
         model = Pledge
         fields = ['id', 'amount', 'comment', 'anonymous', 'project', 'supporter']
         read_only_fields = ['id', 'supporter']
-
+    
+    def get_supporter(self, obj):
+        if obj.anonymous:
+            return None
+        else:
+            return obj.supporter.username
+    
     def create(self, validated_data):
         return Pledge.objects.create(**validated_data)
 
-
 class ProjectSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
-    title  = serializers.CharField(max_length=200)
+    title = serializers.CharField(max_length=200)
     description = serializers.CharField(max_length=None)
     goal = serializers.IntegerField()
     image = serializers.URLField()
     is_open = serializers.BooleanField()
-    date_created = serializers.DateTimeField('%a, %d %b %Y %H:%M %Z')
-    owner = serializers.ReadOnlyField(source='owner.id')
+    date_created = serializers.DateTimeField()
+    owner = serializers.ReadOnlyField(source='owner_id')
+    total = serializers.ReadOnlyField()
 
-    
-    def create(self, validated_data):
-        return Project.objects.create(**validated_data) # dictionary of keys and data
+    def create(self, validated_data): 
+        return Project.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         instance.title = validated_data.get('title', instance.title)
@@ -37,14 +45,6 @@ class ProjectSerializer(serializers.Serializer):
         instance.save()
         return instance
 
-
-class PledgeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Pledge
-        fields = ['id', 'amount', 'comment',
-        'anonymous', 'project', 'supporter']
-        read_only_fields = ['id', 'supporter']
-
 class ProjectDetailSerializer(ProjectSerializer):
     pledges = PledgeSerializer(many=True, read_only=True)
-
+    liked_by = CustomUserSerializer(many=True, read_only=True) 
